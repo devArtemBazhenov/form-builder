@@ -1,0 +1,73 @@
+<div class="autorization">
+  <div>
+    <h2 class="autorization__title">Registration</h2>
+  </div>
+  <div>
+    <form
+      class="autorization__form"
+      [formGroup]="form"
+      (ngSubmit)="registerUser()"
+    >
+      <div class="autorization__form-block">
+        <label
+          for="email"
+          [ngClass]="{
+            'autorization__invalid-text': emailInvalid,
+            'autorization__label': true
+          }"
+        >
+          Email
+        </label>
+        <input
+          name="email"
+          id="email"
+          type="email"
+          placeholder="email"
+          [ngClass]="{
+            'autorization__invalid': emailInvalid,
+            'autorization__input': true
+          }"
+          formControlName="email"
+          (input)="change()"
+        >
+      </div>
+      <small *ngIf="emailInvalid" class="autorization__invalid-text">
+        Email invalid
+      </small>
+
+      <div class="autorization__form-block">
+        <label
+          for="pas"
+          [ngClass]="{
+            'autorization__invalid-text': passwordInvalid,
+            'autorization__label': true
+          }"
+        >
+          Password
+        </label>
+        <input
+          name="password"
+          id="pas"
+          type="password"
+          placeholder="password"
+          [ngClass]="{
+            'autorization__invalid': passwordInvalid,
+            'autorization__input': true
+          }"
+          formControlName="password"
+          (input)="change()"
+        >
+      </div>
+      <small *ngIf="passwordInvalid" class="autorization__invalid-text">
+        Password lenght must be longer than 6 characters
+      </small>
+
+      <button
+        class="autorization__button"
+        type="submit"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+</div>
